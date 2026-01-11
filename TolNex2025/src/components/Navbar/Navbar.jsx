@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { FaMoon, FaSun } from "react-icons/fa";
-import Logo1 from "../../assets/Logo1.png";
-import Logo2 from "../../assets/Logo2.png";
+import Logo1 from "../../assets/Logo1.PNG";
+import Logo2 from "../../assets/Logo2.PNG";
 
 const sections = [
   { id: "home", label: "Home" },
