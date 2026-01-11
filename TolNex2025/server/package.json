@@ -1,0 +1,17 @@
+{
+  "name": "tolnex-server",
+  "version": "1.0.0",
+  "description": "TolNex Portfolio Backend - Postmark Email Service",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.19.2",
+    "postmark": "^4.0.5"
+  }
+}

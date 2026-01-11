@@ -1,0 +1,255 @@
+.projects-section {
+  padding: 3rem 5%;
+  background: #ffffff;
+  color: #001f3d;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-title {
+  text-align: center;
+  font-size: 3rem;
+  color: #00274d;
+  margin-bottom: 2rem;
+}
+
+.projects-skill-group {
+  margin-bottom: 4rem;
+  position: relative; /* for fade overlays & buttons */
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.projects-header h3 {
+  font-size: 2rem;
+  color: #00aeef;
+}
+
+.projects-row {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+/* Hide scrollbar completely */
+.projects-row::-webkit-scrollbar {
+  display: none;
+}
+.projects-row {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Fade edges */
+.projects-skill-group::before,
+.projects-skill-group::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.projects-skill-group::before {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, transparent 100%);
+}
+
+.projects-skill-group::after {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, transparent 100%);
+}
+
+/* Project card styles */
+.project-card {
+  min-width: 300px; /* 3 cards visible */
+  flex: 0 0 auto;
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.35);
+  filter: brightness(1.05);
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.project-info h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #00274d;
+}
+
+.project-info p {
+  font-size: 1rem;
+  color: #6d6d6d;
+  flex: 1;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Buttons */
+.project-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #ff6a00;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-btn::after {
+  content: "";
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #00aeef, #ff6a00, #00aeef, #ff6a00);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: rotate(0deg);
+  border-radius: 10px;
+}
+
+.project-btn:hover::after {
+  opacity: 0.2;
+  transform: rotate(20deg);
+}
+
+.project-btn.view-btn:hover {
+  background: #00aeef;
+}
+
+.project-btn.github-btn {
+  background: #24292e;
+}
+
+.project-btn.github-btn:hover {
+  background: #57606a;
+}
+
+.project-btn.like-btn {
+  background: #ff4d6d;
+}
+
+.project-btn.like-btn:hover {
+  background: #ff6a99;
+}
+
+/* Overlayed scroll buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(0, 174, 239, 0.2);
+  border: none;
+  font-size: 2rem;
+  padding: 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background: #00aeef;
+  color: #fff;
+}
+
+.scroll-left {
+  left: 10px;
+}
+
+.scroll-right {
+  right: 10px;
+}
+
+/* Floating tech icons */
+.floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.floating-icon {
+  position: absolute;
+  color: rgba(0, 174, 239, 0.15);
+  animation: float 12s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(20deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .project-card {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    min-width: 200px;
+  }
+  .scroll-btn {
+    font-size: 1.5rem;
+    padding: 0.4rem;
+  }
+}

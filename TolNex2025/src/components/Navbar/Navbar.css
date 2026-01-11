@@ -1,0 +1,123 @@
+/* =========================
+   NAVBAR BASE
+========================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #ffffff;
+  z-index: 999;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* =========================
+   CONTAINER (ONE LINE)
+========================= */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================
+   LOGO (CONTROLLED SIZE)
+========================= */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  height: 32px; /* 👈 keeps logo neat */
+  width: auto;
+}
+
+/* =========================
+   LINKS
+========================= */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar-links a {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #001f3d;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+/* Hero-style fade underline */
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff6a00, transparent);
+  transform: translateX(-50%);
+  transition: width 0.35s ease;
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+  width: 120%;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* CTA */
+.cta-btn {
+  background: #ff6a00;
+  color: #ffffff;
+  padding: 0.45rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 106, 0, 0.4);
+}
+
+/* Theme toggle */
+.mode-btn {
+  background: transparent;
+  border: 1px solid #001f3d;
+  border-radius: 50%;
+  padding: 0.45rem;
+  cursor: pointer;
+  color: #001f3d;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+:root.dark .navbar {
+  background: #001f3d;
+}
+
+:root.dark .navbar-links a,
+:root.dark .mode-btn {
+  color: #ffffff;
+  border-color: #ffffff;
+}
