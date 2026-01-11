@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
 import Logo1 from "../../assets/Logo1.PNG";
 import Logo2 from "../../assets/Logo2.PNG";
 
@@ -15,6 +15,7 @@ const sections = [
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [active, setActive] = useState("home");
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   /* Apply theme */
   useEffect(() => {
@@ -48,12 +49,13 @@ const Navbar = () => {
         </div>
 
         {/* Links */}
-        <ul className="navbar-links">
+        <ul className={`navbar-links ${mobileMenu ? "active" : ""}`}>
           {sections.map((sec) => (
             <li key={sec.id}>
               <a
                 href={`#${sec.id}`}
                 className={active === sec.id ? "active" : ""}
+                onClick={() => setMobileMenu(false)} // close menu on click
               >
                 {sec.label}
               </a>
@@ -72,6 +74,11 @@ const Navbar = () => {
           >
             {darkMode ? <FaSun /> : <FaMoon />}
           </button>
+
+          {/* Hamburger for mobile */}
+          <div className="hamburger" onClick={() => setMobileMenu(!mobileMenu)}>
+            {mobileMenu ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
       </div>
     </nav>
